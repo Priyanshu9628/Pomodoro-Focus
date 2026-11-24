@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Study Timer & Focus Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Pomodoro Focus</h1>
+        </header>
+
+        <main class="timer-card">
+            <div class="mode-switcher">
+                <button class="mode-btn active" data-mode="pomodoro" id="pomodoro-mode-btn">Pomodoro (25m)</button>
+                <button class="mode-btn" data-mode="shortBreak" id="short-mode-btn">Short Break (5m)</button>
+                <button class="mode-btn" data-mode="longBreak" id="long-mode-btn">Long Break (15m)</button>
+            </div>
+
+            <div class="timer-display" id="timer-display">25:00</div>
+
+            <div class="timer-controls">
+                <button id="start-btn" class="control-btn primary">Start</button>
+                <button id="pause-btn" class="control-btn" disabled>Pause</button>
+                <button id="reset-btn" class="control-btn">Reset</button>
+                <button id="skip-btn" class="control-btn">Skip</button>
+            </div>
+
+            
+            <div class="custom-time-box">
+                <button type="button" id="toggle-custom-btn" class="custom-toggle-btn">Edit Custom Time (Minutes)</button>
+                <form id="custom-time-form" class="custom-time-form hidden">
+                    <div class="custom-inputs">
+                        <label>
+                            Pomodoro
+                            <input type="number" id="custom-pomodoro" min="1" max="180" required>
+                        </label>
+                        <label>
+                            Short Break
+                            <input type="number" id="custom-short" min="1" max="60" required>
+                        </label>
+                        <label>
+                            Long Break
+                            <input type="number" id="custom-long" min="1" max="120" required>
+                        </label>
+                    </div>
+                    <div class="custom-actions">
+                        <button type="submit" class="save-time-btn">Save Time</button>
+                        <button type="button" id="default-time-btn" class="default-time-btn">Reset Default</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <section class="task-section">
+            <h2>Daily Study Tasks</h2>
+            <form id="task-form" class="task-input-group">
+                <input type="text" id="task-input" placeholder="What is your today's gole ?..." required>
+                <select id="priority-select">
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <button type="submit" class="add-btn">Add Task</button>
+            </form>
+
+            <ul id="task-list" class="task-list">
+                
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
